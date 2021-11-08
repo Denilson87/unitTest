@@ -11,4 +11,12 @@ describe('math fucntion', ()=>{
      })
 })
 
+describe('time fucntion', ()=>{
+    
+    it('return timestamp for one hour ahead', () =>{
+       global.Date.now =() =>0
+        expect(sum(1,2)).toBe(3)
+     })
+})
+
 
