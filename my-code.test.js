@@ -12,11 +12,12 @@ describe('math fucntion', ()=>{
 })
 
 describe('time function', ()=>{
-    const realDate = Date.bind(global.Date)
+    const realDate = Date.now.bind(global.Date)
     it('return timestamp for one hour ahead', () =>{
-       global.Date.now =() => 0
+       global.Date.now = jest.fn(() => 0)
         expect(inOneHour()).toBe(3600000)
-        global.Date = realDate
+        global.Date.now = realDate
+        console.log(global.Date.now())
      })
 })
 
