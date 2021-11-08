@@ -1,4 +1,4 @@
-const { sum } = require ('./my-code')
+const { sum, inOneHour } = require ('./my-code')
 
 describe('math fucntion', ()=>{
     
@@ -11,11 +11,12 @@ describe('math fucntion', ()=>{
      })
 })
 
-describe('time fucntion', ()=>{
-    
+describe('time function', ()=>{
+    const realDate = Date.bind(global.Date)
     it('return timestamp for one hour ahead', () =>{
-       global.Date.now =() =>0
-        expect(sum(1,2)).toBe(3)
+       global.Date.now =() => 0
+        expect(inOneHour()).toBe(3600000)
+        global.Date = realDate
      })
 })
 
